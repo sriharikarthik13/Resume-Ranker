@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Scores</title>
+<style>
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #000000;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+       }
+       table {
+           border-collapse: collapse;
+           width: 80%;
+           margin: auto;
+           background: white;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       }
+       th, td {
+           padding: 15px;
+           text-align: left;
+           border-bottom: 1px solid #ddd;
+       }
+       th {
+           background-color: #4CAF50;
+           color: white;
+       }
+       .progress-container {
+           width: 100%;
+           background-color: #e0e0e0;
+           border-radius: 5px;
+       }
+       .progress-bar {
+           height: 20px;
+           border-radius: 5px;
+       }
+       .green {
+           background-color: #4CAF50;
+       }
+       .yellow {
+           background-color: #FFC107;
+       }
+       .red {
+           background-color: #F44336;
+       }
+</style>
+</head>
+<body>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Resume Name</th>
+<th>Score</th>
+<th>Percentage Bar</th>
+</tr>
+</thead>
+<tbody>
+           {% for id, name, score in resume_details %}
+<tr>
+<td>{{ id }}</td>
+<td><a href="../static/uploads/{{name}}" download>{{ name }}</a></td>
+<a><td>{{ score }}</td></a>
+<td>
+<div class="progress-container">
+<div class="progress-bar
+                           {% if score > 60 and score < 50 %}green{% elif score > 40 and score < 50 %}yellow{% else %}red{% endif %}"
+                           style="width: {{ score }}%;">
+</div>
+</div>
+</td>
+</tr>
+           {% endfor %}
+</tbody>
+</table>
+</body>
+</html>

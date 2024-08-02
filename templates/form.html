@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTER JOB DESCRIPTION</title>
+<style>
+       body {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+           background: linear-gradient(135deg, #101010, #764ba2);
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           color: #fff;
+       }
+       .form-container {
+           background: rgba(255, 255, 255, 0.1);
+           backdrop-filter: blur(10px);
+           padding: 2rem;
+           border-radius: 15px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           text-align: center;
+       }
+       .form-container h2 {
+           margin-bottom: 1.5rem;
+           color: #fff;
+           font-size: 1.5rem;
+       }
+       .form-container .form-field {
+           margin-bottom: 1rem;
+       }
+       .form-container input[type="text"] {
+           width: 100%;
+           padding: 0.75rem;
+           margin-bottom: 1rem;
+           border: none;
+           border-radius: 5px;
+           font-size: 1rem;
+       }
+       .form-container input[type="submit"] {
+           width: 100%;
+           padding: 0.75rem;
+           background-color: #ff6b6b;
+           border: none;
+           border-radius: 5px;
+           color: white;
+           font-size: 1rem;
+           cursor: pointer;
+           transition: background-color 0.3s ease;
+       }
+       .form-container input[type="submit"]:hover {
+           background-color: #ff4a4a;
+       }
+</style>
+</head>
+<body>
+<div class="form-container">
+<h2>Submit a Job Description or Key Skills</h2>
+<form method="POST">
+           {{ form.hidden_tag() }}
+<div class="form-field">
+               {{ form.jobid.label }}<br>
+               {{ form.jobid(size=32, class_='form-control') }}
+</div>
+<div class="form-field">
+               {{ form.jdescription.label }}<br>
+               {{ form.jdescription(size=32, class_='form-control') }}
+</div>
+           {{ form.submit(class_='btn btn-primary') }}
+</form>
+</div>
+</body>
+</html>
+
+
